@@ -28,10 +28,3 @@ Aplicação de chat em tempo real desenvolvida com React, Node.js, Express e Soc
 ![Preview do Projeto](image.png)
 ![terminal](image-1.png)
 ---
-
-## ⚙️ Como executar o projeto
-
-### 1. Clone o repositório
-
-```bash
-git clone <URL_DO_REPOSITORIO>
