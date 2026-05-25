@@ -16,6 +16,7 @@ export default function Chat({ socket }) {
     const [lista, setlista] = useState(true)
     const [conexao, setconexao] = useState(socket.connected)
     const [digitando, setDigitando] = useState(false)
+    const [boasVindas, setBoasVindas] = useState('')
 
     useEffect(() => {
 
@@ -112,7 +113,19 @@ export default function Chat({ socket }) {
     } else {
         icones = <IoEyeOffSharp color="black" />
     }
+    const chatMessagesRef = useRef(null)
 
+   useEffect(() => {
+
+    chatMessagesRef.current.scrollTop =
+        chatMessagesRef.current.scrollHeight
+
+}, [messageList])
+
+
+useEffect(() => {
+setBoasVindas('Bem-vindo fulado de tals')
+}, [])
     return (
         <div className={`chat-container ${tema ? 'dark' : 'light'}`}>
 
@@ -161,12 +174,21 @@ export default function Chat({ socket }) {
                     )
                 }
 
+                <p>
+                {boasVindas}
+                </p>
+
             </div>
+
+            
 
             {
                 lista === true && (
 
-                    <div className='chat-messages'>
+                        <div
+                        className='chat-messages'
+                        ref={chatMessagesRef}
+                        >
 
                         {
                             messageList.map((message, index) => (
@@ -202,6 +224,7 @@ export default function Chat({ socket }) {
                 <button onClick={handleSubmit}>
                     Enviar
                 </button>
+
 
             </div>
 

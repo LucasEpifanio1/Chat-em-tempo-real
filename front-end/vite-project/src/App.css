@@ -40,3 +40,8 @@
 .read-the-docs {
   color: #888;
 }
+
+.chat-messages{
+    overflow-y: auto;
+    height: 400px;
+}
